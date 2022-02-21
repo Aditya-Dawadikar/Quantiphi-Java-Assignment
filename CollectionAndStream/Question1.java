@@ -1,29 +1,28 @@
-import java.util.*
+import java.util.*;
 
-class Question1{
-    public static void main(String[] args) {
-		HashMap<String,Integer> hm = new HashMap<String,Integer>();
-		
-		hm.put("aditya",1);
-		hm.put("chandler",12);
-		hm.put("geekgod",19);
-		hm.put("bobafett",15);
-		
-		System.out.println("---------Handled using Std output---------");
-		System.out.println(hm);
+public class Question1 {
+	public static void main(String args[]) {
+		List<String> argList = Arrays.asList(args);
+		System.out.println("Argument List");
+		System.out.println(argList);
 		System.out.println();
 		
-		System.out.println("---------Handled using advanced forloop---------");
-	    for (HashMap.Entry<String, Integer> record :hm.entrySet()) {
-            System.out.println(record.getKey() + ":"+ record.getValue());
-        }
-        System.out.println();
-        
-        System.out.println("---------Handled using while loop---------");
-        Iterator  it = hm.entrySet().iterator();
-        while(it.hasNext()){
-            HashMap.Entry record = (HashMap.Entry)it.next();
-            System.out.println(record.getKey() + ":"+ record.getValue());
-        }
+		Collections.shuffle(argList);
+		
+		System.out.println("handled using std out");
+		System.out.println(argList);
+		System.out.println();
+		
+		System.out.println("handled using stream");
+		argList.stream().forEach(e->System.out.print(e+" "));
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("handled enhanced forloop");
+		for(String s:argList) {
+			System.out.print(s+" ");
+		}
+		System.out.println();
+		System.out.println();
 	}
 }

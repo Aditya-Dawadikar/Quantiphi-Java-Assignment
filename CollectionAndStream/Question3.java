@@ -1,35 +1,18 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
-class Question3{
-    public static void main(String[] args) {
-		ArrayList<Integer> a = new ArrayList<Integer>();
+public class Question3 {
+	public static void main(String args[]) {
+		ArrayList<String> arr= new ArrayList<String>();
 		
-		a.add(1);
-		a.add(2);
-		a.add(3);
-		a.add(4);
-		a.add(5);
+		arr.add("  He barked orders at his daughters but they just stared back with amusement.    ");
+		arr.add("               He looked behind the door and didn't like what he saw.   ");
+		arr.add(" Nudist colonies shun fig-leaf couture.     ");
+		arr.add("     When I was little I had a car door slammed shut on my hand and I still remember it quite vividly.  ");
+		arr.add("  There's an art to getting your way, and spitting olive pits across the table isn't it.         ");
+	
+		List<String> res = arr.stream().map(e->e.trim()).collect(Collectors.toList());
 		
-		System.out.println("---------Handled using Std output---------");
-		System.out.println(a);
-		System.out.println();
-		
-		System.out.println("---------Handled using advanced forloop---------");
-		for(Integer ele: a){
-		    System.out.println(ele);
-		}
-		System.out.println();
-		
-		System.out.println("---------Handled using for loop---------");
-		for(int i=0;i<a.size();i++){
-		    System.out.println(a.get(i));
-		}
-		System.out.println();
-		
-		System.out.println("---------Handled using while loop---------");
-		ListIterator<Integer> it = a.listIterator();
-		while(it.hasNext()){
-		    System.out.println(it.next());
-		}
+		System.out.println(res);
 	}
 }

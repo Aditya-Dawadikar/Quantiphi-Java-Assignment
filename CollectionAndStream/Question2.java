@@ -1,20 +1,19 @@
 import java.util.*;
 
-class Question2{
-    public static void main(String[] args) {
-		HashMap<String,Integer> hm = new HashMap<String,Integer>();
-		String data = new String("hello hello world world hello world hello");
-		String[] tokens = data.split(" ", -1);
+public class Question2 {
+	public static void main(String args[]) {
+		String s = new String("The elephant didn't want to talk about the person in the room");
+		String[] tokens = s.split(" ",-1);
+		SortedSet<String> ss = new TreeSet<String>(new Comparator<String>() {
+	        @Override
+	        public int compare(String o1, String o2) {
+	            return o1.toLowerCase().compareTo(o2.toLowerCase());
+	        }
+	    });
 		
-		// initializing the hashmap
-		for(int i=0;i<tokens.length;i++){
-		    if(hm.get(tokens[i])==null){
-		        hm.put(tokens[i],1);
-		    }else{
-		        hm.put(tokens[i],(int)hm.get(tokens[i])+1);
-		    }
+		for(String str:tokens) {
+			ss.add(str);
 		}
-		
-		System.out.println(hm);
+		System.out.println(ss);
 	}
 }
